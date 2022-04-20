@@ -19,6 +19,10 @@ contract StarNotary is ERC721 {
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
 
+    constructor() public {
+        symbol = "STN";
+        name = "Star Notary";
+    }
 
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _tokenId) public {// Passing the name and tokenId as a parameters
@@ -58,7 +62,7 @@ contract StarNotary is ERC721 {
     }
 
     function lookUptokenIdToStarInfo(uint _tokenId) public view returns (string memory) {
-        return tokenIdToStarInfo[_tokenId];
+        return tokenIdToStarInfo[_tokenId].name;
     }
 
     // Implement Task 1 Exchange Stars function
